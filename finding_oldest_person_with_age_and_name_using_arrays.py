@@ -1,5 +1,15 @@
+#making a for loop to find the biggest number in the array 
+def largest (person_age_and_name):
+    biggest_number = person_age_and_name [0]
+
+    for i in person_age_and_name: 
+        if i > biggest_number: 
+            biggest_number = i
+        
+        return biggest_number
+
 person_age_and_name = {}
-#asking for user input 
+    #asking for user input 
 while True:
     while True: 
     #setting a definition of a valid name and age
@@ -32,8 +42,6 @@ while True:
         break
     elif retry != "yes":
         print("Invalid")   
-
-
-#ask if the user wants to continue with inputing age and names 
-
 #if they say no display the name and age of the oldest person
+result = largest(person_age_and_name)
+print(result)
