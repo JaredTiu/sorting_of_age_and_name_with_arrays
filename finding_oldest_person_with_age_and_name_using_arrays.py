@@ -1,16 +1,11 @@
 person_age_and_name = {}
 #asking for user input 
-while True: 
+while True:
+    while True: 
     #setting a definition of a valid name and age
-    try: 
-        while True:
+        try: 
             name = input("Input a name: ") 
-            
-            if name != int:
-                print("Input a valid name: ")
-            elif name == str:
-                break
-                
+        
             while True: 
                 age = input("Input a age: ")
 
@@ -26,8 +21,19 @@ while True:
             }
             print(person_age_and_name ["name"])
             print(person_age_and_name ["age"])
-    except:
-        print("INVALID")    
+            
+            #ask if the user wants to continue with inputing age and names
+            retry = input("Do you want to continue: ")
+            break
+        except:
+            print("INVALID")
+
+    if retry == "no":
+        break
+    elif retry != "yes":
+        print("Invalid")   
+
+
 #ask if the user wants to continue with inputing age and names 
 
 #if they say no display the name and age of the oldest person
