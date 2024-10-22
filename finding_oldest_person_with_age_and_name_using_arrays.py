@@ -21,11 +21,12 @@ while True:
             #asking for user input  
             name = input("Input a name: ")
 
-            while not valid_name(name) or name.isspace():
+            while not valid_name(name) or name.isspace()or name.strip() == "":
                 print("Do not include Special characters or numbers")
                 name = input("Enter a name without special characters: ")
             
             space_checker = not name.isspace()
+            enter_checker = name.strip()
 
             while True:
                 try: 
