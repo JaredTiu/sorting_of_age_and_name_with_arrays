@@ -1,5 +1,3 @@
-default_highest_age = -1
-name_of_person_with_highest_age = ""
 #making a for loop to find the biggest number in the array 
 person_name_and_age = {}
     #asking for user input 
@@ -13,15 +11,10 @@ while True:
                 age = int(input("Input a age: "))
 
                 if age < 0 or age > 100: 
-                    raise
-                break 
-
+                    raise 
+                break
             #get the info into an array
-            person_name_and_age = {
-                "name": name,
-                "age": age
-            }        
-            
+            person_name_and_age[name] = age
             #ask if the user wants to continue with inputing age and names
             retry = input("Do you want to continue, yes or no? : ")
             break
@@ -29,11 +22,16 @@ while True:
             print("INVALID")
 #if they say no display the name and age of the oldest person
     if retry == "no":
-       for user_name, user_age in person_name_and_age.items(): 
-           if user_age > default_highest_age:
-                default_highest_age = user_age
-                name_of_person_with_highest_age = user_name
-                print(f"{name_of_person_with_highest_age} has the highest age, they are  {default_highest_age} years old." )
+
+        highest_value = max(person_name_and_age.values())
+        highest_names = []
+
+        for key in person_name_and_age: 
+            if person_name_and_age[key] == highest_value: 
+                highest_names.append(key)
+        print(f"The person who is the oldest is: {highest_names} They are {highest_value} years old.")
+        break
+    
     elif retry != "yes":
         print("Invalid")
         break
