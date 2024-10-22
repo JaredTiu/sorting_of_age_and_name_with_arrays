@@ -45,7 +45,7 @@ while True:
         for value in person_name_and_age: 
             if person_name_and_age[value] == highest_value: 
                 highest_names.append(value)
-        print(f"The person who is the oldest is: {highest_names} they are {highest_value} years old.")
+        print(f"The person who is the oldest is:", (highest_names.translate({ord('[ ]'): None})), "they are {highest_value} years old.")
         break
 
     elif retry != "yes" or "Yes" or "YES":
