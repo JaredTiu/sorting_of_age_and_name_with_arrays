@@ -1,7 +1,8 @@
 #setting more definitions for valid name
 def valid_name(name):
+    special_characters = "!@#$%^&*()_-=+|\":';~`?/><{]}[]]"
     for character in name:
-        if not (character.isalpha() or character.isdigit() or character == ""):
+        if (character.isdigit() or character in special_characters or character == ""):
             return False
     return True
 
@@ -9,8 +10,8 @@ def valid_name(name):
 person_name_and_age = {}
     #asking for user input 
 while True:
-    while True: 
-    #setting a definition of a valid name and age
+    while True:
+            #asking for user input  
             name = input("Input a name: ")
 
             while not valid_name(name):
@@ -24,17 +25,19 @@ while True:
                     print("Enter only numbers ")
                     age = int(input("Input a valid age: "))
 
-                    
                 if age < 0 or age > 100: 
                     raise 
                 break
+
             #get the info into an array
             person_name_and_age[name] = age
+
             #ask if the user wants to continue with inputing age and names
             retry = input("Do you want to continue, yes or no? : ")
             break
+    
     #if they say no display the name and age of the oldest person
-    if retry == "no":
+    if retry == "no" or "NO" or "No":
 
         highest_value = max(person_name_and_age.values())
         highest_names = []
@@ -45,6 +48,6 @@ while True:
         print(f"The person who is the oldest is: {highest_names} they are {highest_value} years old.")
         break
 
-    elif retry != "yes":
+    elif retry != "yes" or "Yes" or "YES":
         print("Invalid")
         break
