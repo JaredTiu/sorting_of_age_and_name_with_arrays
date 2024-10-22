@@ -1,8 +1,8 @@
 #setting more definitions for valid name
 def valid_name(name):
-    special_characters = "!@#$%^&*()_-=+|\":';~`?/><{]}[]]"
+    special_characters = "!@#$%^&*()_-=+|\":';~`?/><{]}[]]" 
     for character in name:
-        if (character.isdigit() or character in special_characters or character == ""):
+        if (character.isdigit() or character in special_characters or character == " "):
             return False
     return True
 
@@ -20,15 +20,13 @@ while True:
 
             while True:
                 try: 
-                    age = int(input("Input a age: "))
+                    age = int(input("Input a age: "))                    
+                    if age < 0 or age > 100: 
+                        raise 
+                    break
                 except:
                     print("Enter only numbers ")
-                    age = int(input("Input a valid age: "))
-
-                if age < 0 or age > 100: 
-                    raise 
-                break
-
+                
             #get the info into an array
             person_name_and_age[name] = age
 
@@ -37,7 +35,7 @@ while True:
             break
     
     #if they say no display the name and age of the oldest person
-    if retry == "no" or "NO" or "No":
+    if retry == "no":
 
         highest_value = max(person_name_and_age.values())
         highest_names = []
@@ -45,9 +43,9 @@ while True:
         for value in person_name_and_age: 
             if person_name_and_age[value] == highest_value: 
                 highest_names.append(value)
-        print(f"The person who is the oldest is:", (highest_names.translate({ord('[ ]'): None})), "they are {highest_value} years old.")
+        print(f"The person who is the oldest is: {highest_names} they are {highest_value} years old.")
         break
 
-    elif retry != "yes" or "Yes" or "YES":
+    elif retry != "yes":
         print("Invalid")
         break
