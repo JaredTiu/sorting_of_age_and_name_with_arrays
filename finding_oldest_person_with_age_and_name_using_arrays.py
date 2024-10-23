@@ -5,6 +5,7 @@ def valid_name(name):
         if (character.isdigit() or character in special_characters or character == ""):
             return False
     return True
+#user input yes checker
 def yes_checker():
     if retry != "yes":
         return
@@ -15,18 +16,14 @@ def yes_checker():
 
 #making a for loop to find the biggest number in the array 
 person_name_and_age = {}
-    #asking for user input 
 while True:
     while True:
             #asking for user input  
             name = input("Input a name: ")
-
+            #verifying if the name is valid
             while not valid_name(name) or name.isspace()or name.strip() == "":
                 print("Do not include Special characters or numbers")
                 name = input("Enter a name without special characters: ")
-            
-            space_checker = not name.isspace()
-            enter_checker = name.strip()
 
             while True:
                 try: 
@@ -46,7 +43,7 @@ while True:
     
     #if they say no display the name and age of the oldest person
     if retry == "no" or retry == "No" or retry == "NO":
-
+        #highest age finder
         highest_value = max(person_name_and_age.values())
         highest_names = []
 
